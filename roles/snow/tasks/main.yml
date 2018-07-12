@@ -1,5 +1,11 @@
 ---
 # tasks file for roles/snow
+- name: Load SNOW credentials
+  include_vars: vars/snow_credentials.yaml
+
+- name: Load Variables
+  include_vars: roles/snow/vars/variables.yaml
+
 - name: Update ServiceNow CI
   delegate_to: localhost
   snow_record:
@@ -18,10 +24,11 @@
       cpu_core_count: '{{ ansible_processor_cores }}'
       dns_domain: '{{ ansible_domain }}'
       os_version: '{{ ansible_distribution_major_version }}'
-      os: '{{ ansible_distribution_file_variety }}'
+      os: '{{ os[ansible_distribution | lower] }}'
       os_service_pack: '{{ ansible_distribution_version }}'
       ip_address: '{{ ansible_default_ipv4.address }}'
       mac_address: '{{ ansible_default_ipv4.macaddress }}'
       host_name: '{{ ansible_hostname }}'
       fqdn: '{{ ansible_fqdn }}'
-      ram: "{{ (ansible_memtotal_mb/1000) | round(0,'ceil') }}"
+      u_ram_gb: "{{ (ansible_memtotal_mb/1000) | round(0,'ceil') }}"
+      u_ci_business_partner: '{{ business_partner[ansible_domain | lower] }}'

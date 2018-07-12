@@ -1,9 +1,6 @@
 - hosts: servers
+  connection: local
   #remote_user:
   #become: true
   roles:
     - role: snow
-      vars:
-        snow_username: admin
-        snow_password: Swar@1993
-        snow_instance: dev23038.service-now.com         

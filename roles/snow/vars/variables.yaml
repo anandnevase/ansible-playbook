@@ -1,0 +1,7 @@
+os:
+  centos: Linux CentOS
+  redhat: Linux RedHat
+  oel: Linux Oracle
+
+business_partner:
+  global.shareddev.acxiom.net: DSCA
