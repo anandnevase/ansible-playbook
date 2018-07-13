@@ -1,5 +1,5 @@
 - hosts: servers
-  connection: local
+  #connection: local
   #remote_user:
   #become: true
   roles:
