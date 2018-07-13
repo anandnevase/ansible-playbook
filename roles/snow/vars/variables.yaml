@@ -1,6 +1,6 @@
 os:
   centos: Linux CentOS
-  redhat: Linux RedHat
+  redhat: Linux Red Hat
   oel: Linux Oracle
 
 business_partner:
